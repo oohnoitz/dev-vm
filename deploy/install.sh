@@ -40,6 +40,7 @@ apt-get install -y git autoconf
 apt-get install -y htop strace ltrace tmux byobu
 apt-get install -y optipng advancecomp pngcrush jpegoptim
 apt-get install -y ruby-compass ruby-sass
+apt-get install -y openjdk-7-jdk
 
 # FUNCTION
 function reload() {
@@ -189,7 +190,6 @@ fi
 
 if [ ! -f ${PATH_ELASTICSEARCH} ]
 then
-  apt-get install -y openjdk-7-jdk
   cd /opt/deploy/workspace
   wget -nc ${DOWN_ELASTICSEARCH} -O ${PATH_ELASTICSEARCH}
   tar zxvf ${PATH_ELASTICSEARCH}
