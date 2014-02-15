@@ -7,8 +7,14 @@ mkdir -p ~/.deploy
 
 if [ ! -f ~/.deploy/env-000 ]
 then
-  # update mirror
   mkdir -p /opt/deploy
+
+  # modify hostname
+  cp /vagrant/deploy/hostname.sh /opt/deploy/hostname
+  chmod +x /opt/deploy/hostname
+  bash -x /opt/deploy/hostname
+
+  # update mirror
   cp /vagrant/deploy/apt.sh /opt/deploy/apt
   chmod +x /opt/deploy/apt
   bash -x /opt/deploy/apt
