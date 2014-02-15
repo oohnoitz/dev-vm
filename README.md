@@ -9,13 +9,12 @@ Software:
  - Elasticsearch
  - ImageMagick
  - MySQL: MariaDB + TokuDB
- - MongoDB: TokuDB
+ - MongoDB: TokuMX
  - Nginx
  - NodeJS
  - PHP
  - Redis
  - Sphinx Search
- - Zopfli
 
 Extras:
  - advancecomp
@@ -29,6 +28,7 @@ Extras:
  - strace
  - sass (Ruby)
  - unzip
+ - zopfli
 
 Instructions
 ------------
