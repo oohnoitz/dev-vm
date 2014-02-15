@@ -1,0 +1,16 @@
+[Unit]
+Description=MySQL+TokuDB (MariaDB)
+After=sockets.target syslog.target
+Before=nginx.service
+
+[Service]
+Type=simple
+PIDFile=/var/data/mysql/data/dvm.pid
+ExecStart=/usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --pid-file=/var/data/mysql/data/dvm.pid --socket=/tmp/mysql.sock --user=mysql --datadir=/var/data/mysql/data
+ExecStop=/bin/kill -15 $MAINPID
+Restart=always
+RestartSec=2
+TimeoutSec=60
+
+[Install]
+WantedBy=multi-user.target

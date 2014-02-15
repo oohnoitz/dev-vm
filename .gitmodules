@@ -1,0 +1,3 @@
+[submodule "deploy/lib/nginx-installer"]
+	path = deploy/lib/nginx-installer
+	url = https://github.com/oohnoitz/nginx-installer.git

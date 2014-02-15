@@ -1,0 +1,13 @@
+[Unit]
+Description=PHP-FPM
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/var/run/php-fpm.pid
+ExecStart=/usr/local/sbin/php-fpm
+ExecReload=/bin/kill -USR2 $MAINPID
+ExecStop=/bin/kill $MAINPID
+
+[Install]
+WantedBy=multi-user.target

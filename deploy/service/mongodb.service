@@ -1,0 +1,17 @@
+[Unit]
+Description=MongoDB+TokuMX
+Wants=network.target
+After=network.target
+ 
+[Service]
+Type=simple
+ExecStart=/usr/local/mongodb/bin/mongod --config /etc/mongodb.conf
+User=vagrant
+Group=vagrant
+Restart=always
+ExecReload=/bin/kill -HUP $MAINPID
+StandardOutput=syslog
+StandardError=syslog
+ 
+[Install]
+WantedBy=multi-user.target

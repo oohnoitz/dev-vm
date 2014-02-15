@@ -1,0 +1,19 @@
+[Unit]
+Description=Elasticsearch
+Documentation=http://www.elasticsearch.org
+
+[Service]
+Type=forking
+User=vagrant
+Group=vagrant
+PIDFile=/var/run/elasticsearch/elasticsearch.pid
+ExecStart=/usr/local/elasticsearch/bin/elasticsearch -d -p /var/run/elasticsearch/elasticsearch.pid
+# See MAX_OPEN_FILES in sysconfig
+LimitNOFILE=65535
+# See MAX_LOCKED_MEMORY in sysconfig, use "infinity" when MAX_LOCKED_MEMORY=unlimited and using bootstrap.mlockall: true
+#LimitMEMLOCK=infinity
+# Shutdown delay in seconds, before process is tried to be killed with KILL (if configured)
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
