@@ -3,11 +3,16 @@
 # This script will be used to provision our development environment in an orderly fashion. It
 # will contain all essential software installations upon it's deployment.
 
+if [[ $EUID -ne 0 ]] ; then
+  echo "Error: This script must be run with root access to continue."
+  exit 1
+fi
+
 # DOWNLOAD URLS
-DOWN_MYSQL="https://dl.dropbox.com/s/9k1s6toyzh91dsw/mariadb-5.5.30-tokudb-7.1.0-linux-x86_64.tar.gz"
+DOWN_MYSQL="http://www.tokutek.com/download.php?df=1&download_file=mariadb-5.5.30-tokudb-7.1.0-linux-x86_64.tar.gz"
 DOWN_PHP55="http://php.net/distributions/php-5.5.9.tar.gz"
 DOWN_REDIS="http://download.redis.io/releases/redis-2.8.5.tar.gz"
-DOWN_MONGO="https://dl.dropbox.com/s/ohg7hheuoft8j3v/tokumx-1.3.3-linux-x86_64.tgz"
+DOWN_MONGO="http://www.tokutek.com/download.php?df=1&download_file=tokumx-1.4.0-linux-x86_64-main.tar.gz"
 DOWN_NODEJS="http://nodejs.org/dist/v0.10.25/node-v0.10.25.tar.gz"
 DOWN_ZOPFLI="https://zopfli.googlecode.com/files/zopfli-1.0.0.zip"
 DOWN_CASSANDRA="http://apache.mirrors.hoobly.com/cassandra/2.0.5/apache-cassandra-2.0.5-bin.tar.gz"
@@ -18,10 +23,10 @@ DOWN_ELASTICSEARCH="https://download.elasticsearch.org/elasticsearch/elasticsear
 # PATHS
 PATH_SOURCE="/vagrant/.src"
 PATH_NGINX="${PATH_SOURCE}/nginx/1.5.10.dat"
-PATH_MYSQL="${PATH_SOURCE}/$(basename ${DOWN_MYSQL})"
+PATH_MYSQL="${PATH_SOURCE}/$(basename ${DOWN_MYSQL} | sed -e 's,download.php?df=1&download_file=,,g')"
 PATH_PHP55="${PATH_SOURCE}/$(basename ${DOWN_PHP55})"
 PATH_REDIS="${PATH_SOURCE}/$(basename ${DOWN_REDIS})"
-PATH_MONGO="${PATH_SOURCE}/$(basename ${DOWN_MONGO})"
+PATH_MONGO="${PATH_SOURCE}/$(basename ${DOWN_MONGO} | sed -e 's,download.php?df=1&download_file=,,g')"
 PATH_NODEJS="${PATH_SOURCE}/$(basename ${DOWN_NODEJS})"
 PATH_ZOPFLI="${PATH_SOURCE}/$(basename ${DOWN_ZOPFLI})"
 PATH_CASSANDRA="${PATH_SOURCE}/$(basename ${DOWN_CASSANDRA})"
@@ -129,7 +134,7 @@ then
   wget -nc ${DOWN_MONGO} -O ${PATH_MONGO}
   tar zxvf ${PATH_MONGO}
   rm -rf /usr/local/mongodb
-  mv /opt/deploy/workspace/$(basename ${PATH_MONGO} ".tgz") /usr/local/mongodb
+  mv /opt/deploy/workspace/$(basename ${PATH_MONGO} "-main.tar.gz") /usr/local/mongodb
   mkdir -p /var/data/mongodb
   mkdir -p /var/log/mongodb
   chown -R vagrant:vagrant /var/data/mongodb
