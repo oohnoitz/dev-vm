@@ -18,6 +18,7 @@ Software:
 
 Extras:
  - advancecomp
+ - byobu
  - compass (Ruby)
  - git
  - htop
@@ -25,15 +26,25 @@ Extras:
  - ltrace
  - optipng
  - pngcrush
- - strace
+ - tmux
  - sass (Ruby)
+ - screen
+ - strace
  - unzip
  - zopfli
 
 Instructions
 ------------
- - `git clone https://github.com/oohnoitz/dev-vm.git`
- - `git submodule init`
- - `git submodule update`
- - `vagrant up`
- - `vagrant reload --provision`
+
+### Install
+ 1. `git clone https://github.com/oohnoitz/dev-vm.git`
+ 2. `git submodule init`
+ 3. `git submodule update`
+ 4. `vagrant up`
+ 5. `vagrant reload --provision`
+
+### Update
+ 1. `git pull`
+ 1. `git submodule update`
+ 2. `vagrant reload --provision`
+ 

@@ -36,8 +36,8 @@ mkdir -p ${PATH_SOURCE}/nginx
 
 # APT
 apt-get update
-apt-get install -y htop strace ltrace
 apt-get install -y git autoconf
+apt-get install -y htop strace ltrace tmux byobu
 apt-get install -y optipng advancecomp pngcrush jpegoptim
 apt-get install -y ruby-compass ruby-sass
 
