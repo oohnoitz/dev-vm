@@ -69,7 +69,7 @@ then
   mkdir -p /usr/local/nginx/conf/ssl
   cp /vagrant/deploy/ssl/default.crt /usr/local/nginx/conf/ssl/default.crt
   cp /vagrant/deploy/ssl/default.key /usr/local/nginx/conf/ssl/default.key
-  bash -x /vagrant/deploy/config.sh nginx
+  bash -x /vagrant/deploy/config.sh nginx no
   reload nginx.service
 fi
 
@@ -99,7 +99,7 @@ then
   chown -R root .
   chown -R mysql data
   chgrp -R mysql /var/data/mysql
-  bash -x /vagrant/deploy/config.sh mysql
+  bash -x /vagrant/deploy/config.sh mysql no
   reload mysqld.service
 fi
 
@@ -112,7 +112,7 @@ then
   cd /opt/deploy/workspace/$(basename ${PATH_MYSQL} ".tar.gz")
   ./configure --enable-fpm --enable-zip --enable-sockets --with-pdo-mysql --with-mysqli --with-mysql --with-gettext --with-gd --enable-ftp --enable-exif --with-curl --with-bz2 --with-openssl --with-mcrypt --enable-mbstring --with-jpeg-dir --with-png-dir --with-zlib --enable-bcmath --enable-intl
   make && make install
-  bash -x /vagrant/deploy/config.sh php
+  bash -x /vagrant/deploy/config.sh php no
   reload php-fpm.service
 fi
 
@@ -123,7 +123,7 @@ then
   tar zxvf ${PATH_REDIS}
   cd /opt/deploy/workspace/$(basename ${PATH_REDIS} ".tar.gz")
   make && make install
-  bash -x /vagrant/deploy/config.sh redis
+  bash -x /vagrant/deploy/config.sh redis no
   reload redis.service
 fi
 
@@ -138,7 +138,7 @@ then
   mkdir -p /var/log/mongodb
   chown -R vagrant:vagrant /var/data/mongodb
   chown -R vagrant:vagrant /var/log/mongodb
-  bash -x /vagrant/deploy/config.sh mongodb
+  bash -x /vagrant/deploy/config.sh mongodb no
   reload mongodb.service
 fi
 
@@ -205,7 +205,7 @@ then
   chown -R vagrant:vagrant /var/data/elasticsearch
   chown -R vagrant:vagrant /var/log/elasticsearch
   chown -R vagrant:vagrant /var/run/elasticsearch
-  bash -x /vagrant/deploy/config.sh elasticsearch
+  bash -x /vagrant/deploy/config.sh elasticsearch no
   reload elasticsearch.service
 fi
 
