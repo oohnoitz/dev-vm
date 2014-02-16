@@ -109,7 +109,7 @@ then
   cd /opt/deploy/workspace
   wget -nc ${DOWN_PHP55} -O ${PATH_PHP55}
   tar zxvf ${PATH_PHP55}
-  cd /opt/deploy/workspace/$(basename ${PATH_MYSQL} ".tar.gz")
+  cd /opt/deploy/workspace/$(basename ${PATH_PHP55} ".tar.gz")
   ./configure --enable-fpm --enable-zip --enable-sockets --with-pdo-mysql --with-mysqli --with-mysql --with-gettext --with-gd --enable-ftp --enable-exif --with-curl --with-bz2 --with-openssl --with-mcrypt --enable-mbstring --with-jpeg-dir --with-png-dir --with-zlib --enable-bcmath --enable-intl
   make && make install
   bash -x /vagrant/deploy/config.sh php no
