@@ -34,10 +34,11 @@ PATH_IMAGEMAGICK="${PATH_SOURCE}/$(basename ${DOWN_IMAGEMAGICK})"
 PATH_SPHINXSEARCH="${PATH_SOURCE}/$(basename ${DOWN_SPHINXSEARCH})"
 PATH_ELASTICSEARCH="${PATH_SOURCE}/$(basename ${DOWN_ELASTICSEARCH})"
 
-# MKDIR
+# INIT
 mkdir -p /opt/deploy/workspace
 mkdir -p ${PATH_SOURCE}
 mkdir -p ${PATH_SOURCE}/nginx
+chmod +x /vagrant/deploy/config.sh
 
 # APT
 apt-get update
@@ -68,8 +69,7 @@ then
   mkdir -p /usr/local/nginx/conf/ssl
   cp /vagrant/deploy/ssl/default.crt /usr/local/nginx/conf/ssl/default.crt
   cp /vagrant/deploy/ssl/default.key /usr/local/nginx/conf/ssl/default.key
-  cp /vagrant/deploy/config/nginx.type /usr/local/nginx/conf/mime.types
-  cp /vagrant/deploy/config/nginx.conf /usr/local/nginx/conf/nginx.conf
+  bash -x /vagrant/deploy/config.sh nginx
   reload nginx.service
 fi
 
@@ -99,7 +99,7 @@ then
   chown -R root .
   chown -R mysql data
   chgrp -R mysql /var/data/mysql
-  cp /vagrant/deploy/config/mysql.cnf /etc/my.cnf
+  bash -x /vagrant/deploy/config.sh mysql
   reload mysqld.service
 fi
 
@@ -112,8 +112,7 @@ then
   cd /opt/deploy/workspace/$(basename ${PATH_MYSQL} ".tar.gz")
   ./configure --enable-fpm --enable-zip --enable-sockets --with-pdo-mysql --with-mysqli --with-mysql --with-gettext --with-gd --enable-ftp --enable-exif --with-curl --with-bz2 --with-openssl --with-mcrypt --enable-mbstring --with-jpeg-dir --with-png-dir --with-zlib --enable-bcmath --enable-intl
   make && make install
-  cp /vagrant/deploy/config/php.ini /usr/local/lib/php.ini
-  cp /vagrant/deploy/config/php-fpm.conf /usr/local/etc/php-fpm.conf
+  bash -x /vagrant/deploy/config.sh php
   reload php-fpm.service
 fi
 
@@ -124,7 +123,7 @@ then
   tar zxvf ${PATH_REDIS}
   cd /opt/deploy/workspace/$(basename ${PATH_REDIS} ".tar.gz")
   make && make install
-  cp /opt/deploy/workspace/$(basename ${PATH_REDIS} ".tar.gz")/redis.conf /etc/redis.conf
+  bash -x /vagrant/deploy/config.sh redis
   reload redis.service
 fi
 
@@ -139,7 +138,7 @@ then
   mkdir -p /var/log/mongodb
   chown -R vagrant:vagrant /var/data/mongodb
   chown -R vagrant:vagrant /var/log/mongodb
-  cp /vagrant/deploy/config/mongodb.conf /etc/mongodb.conf
+  bash -x /vagrant/deploy/config.sh mongodb
   reload mongodb.service
 fi
 
@@ -206,7 +205,7 @@ then
   chown -R vagrant:vagrant /var/data/elasticsearch
   chown -R vagrant:vagrant /var/log/elasticsearch
   chown -R vagrant:vagrant /var/run/elasticsearch
-  cp /vagrant/deploy/config/elasticsearch.yml /usr/local/elasticsearch/config/elasticsearch.yml
+  bash -x /vagrant/deploy/config.sh elasticsearch
   reload elasticsearch.service
 fi
 
