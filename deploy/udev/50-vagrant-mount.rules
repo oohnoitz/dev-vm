@@ -1,0 +1,2 @@
+SUBSYSTEM=="bdi", ACTION=="add", RUN+="/opt/deploy/udev.sh"
+SUBSYSTEM=="bdi", ACTION=="remove", RUN+="/opt/deploy/udev.sh"

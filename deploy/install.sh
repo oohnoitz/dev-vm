@@ -69,6 +69,9 @@ then
   mkdir -p /usr/local/nginx/conf/ssl
   cp /vagrant/deploy/ssl/default.crt /usr/local/nginx/conf/ssl/default.crt
   cp /vagrant/deploy/ssl/default.key /usr/local/nginx/conf/ssl/default.key
+  cp /vagrant/deploy/udev/50-vagrant-mount.rules /etc/udev/rules.d/50-vagrant-mount.rules
+  cp /vagrant/deploy/udev.sh /opt/deploy/udev.sh
+  chmod +x /opt/deploy/udev.sh
   bash -x /vagrant/deploy/config.sh nginx no
   reload nginx.service
 fi
