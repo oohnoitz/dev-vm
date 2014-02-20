@@ -91,17 +91,15 @@ then
     useradd -r -g mysql mysql
     touch ~/.deploy/init-mysql-000
   fi
-  chown -R mysql .
-  chgrp -R mysql .
+  mkdir -p /usr/local/mysql/temp
+  chown -R mysql:mysql .
   mkdir -p /var/data/mysql/data
+  chown -R mysql:mysql /var/data/mysql
   if [ ! -f ~/.deploy/init-mysql-001 ]
   then
     scripts/mysql_install_db --user=mysql --datadir=/var/data/mysql/data
     touch ~/.deploy/init-mysql-001
   fi
-  chown -R root .
-  chown -R mysql data
-  chgrp -R mysql /var/data/mysql
   bash -x /vagrant/deploy/config.sh mysql no
   reload mysqld.service
 fi
