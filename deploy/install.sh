@@ -235,7 +235,7 @@ echo "+------------------------------------"
 echo "| Verifying Installation"
 echo "+------------------------------------"
 verify /usr/local/nginx/sbin/nginx ${PATH_NGINX}
-verify /usr/bin/convert ${PATH_IMAGEMAGICK}
+verify /usr/local/bin/convert ${PATH_IMAGEMAGICK}
 verify /usr/local/bin/node ${PATH_NODEJS}
 verify /usr/local/bin/php ${PATH_PHP55}
 verify /usr/local/bin/redis-server ${PATH_REDIS}
