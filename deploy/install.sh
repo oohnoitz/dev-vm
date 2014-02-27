@@ -11,14 +11,14 @@ fi
 # DOWNLOAD URLS
 DOWN_MYSQL="http://www.tokutek.com/download.php?df=1&download_file=mariadb-5.5.30-tokudb-7.1.0-linux-x86_64.tar.gz"
 DOWN_PHP55="http://php.net/distributions/php-5.5.9.tar.gz"
-DOWN_REDIS="http://download.redis.io/releases/redis-2.8.5.tar.gz"
+DOWN_REDIS="http://download.redis.io/releases/redis-2.8.6.tar.gz"
 DOWN_MONGO="http://www.tokutek.com/download.php?df=1&download_file=tokumx-1.4.0-linux-x86_64-main.tar.gz"
 DOWN_NODEJS="http://nodejs.org/dist/v0.10.25/node-v0.10.25.tar.gz"
 DOWN_ZOPFLI="https://zopfli.googlecode.com/files/zopfli-1.0.0.zip"
 DOWN_CASSANDRA="http://apache.mirrors.hoobly.com/cassandra/2.0.5/apache-cassandra-2.0.5-bin.tar.gz"
-DOWN_IMAGEMAGICK="http://www.imagemagick.org/download/ImageMagick-6.8.8-5.tar.gz"
-DOWN_SPHINXSEARCH="http://sphinxsearch.com/files/sphinx-2.1.5-release.tar.gz"
-DOWN_ELASTICSEARCH="https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.0.tar.gz"
+DOWN_IMAGEMAGICK="http://www.imagemagick.org/download/ImageMagick-6.8.8-7.tar.gz"
+DOWN_SPHINXSEARCH="http://sphinxsearch.com/files/sphinx-2.1.6-release.tar.gz"
+DOWN_ELASTICSEARCH="https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz"
 
 # PATHS
 PATH_SOURCE="/vagrant/.src"
