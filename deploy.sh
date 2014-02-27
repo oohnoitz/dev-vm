@@ -21,8 +21,8 @@ then
 
   # update distro and install systemd & essentials
   apt-get update
-  apt-get upgrade
   yes "Yes, do as I say!" | apt-get install -y --force-yes systemd systemd-sysv
+  apt-get upgrade -y
   apt-get install -y build-essential libpcre3-dev libssl-dev unzip
 
   echo "------------------------------------------------------------------------------------"
@@ -35,7 +35,7 @@ then
   mkdir -p /opt/deploy
   cp /vagrant/deploy/install.sh /opt/deploy/install
   chmod +x /opt/deploy/install
-  bash -x /opt/deploy/install
+  bash /opt/deploy/install
 fi
 
 touch ~/.deploy/env-000

@@ -58,6 +58,16 @@ function reload() {
   /bin/systemctl status ${1}
 }
 
+function verify() {
+  if [ -f ${1} ]
+  then
+    echo -e "[\e[0;32mY\e[0m] ${1}"
+  else
+    rm ${2}
+    echo -e "[\e[0;31mN\e[0m] ${1}"
+  fi
+}
+
 if [ ! -f ${PATH_NGINX} ]
 then
   cd /opt/deploy/workspace
@@ -220,3 +230,14 @@ then
   apt-get install -y postgresql postgresql-client
   touch ~/.deploy/init-pgsql-000
 fi
+
+echo "+------------------------------------"
+echo "| Verifying Installation"
+echo "+------------------------------------"
+verify /usr/local/nginx/sbin/nginx ${PATH_NGINX}
+verify /usr/bin/convert ${PATH_IMAGEMAGICK}
+verify /usr/local/bin/node ${PATH_NODEJS}
+verify /usr/local/bin/php ${PATH_PHP55}
+verify /usr/local/bin/redis-server ${PATH_REDIS}
+verify /usr/local/bin/searchd ${PATH_SPHINXSEARCH}
+verify /usr/local/bin/zopfli ${PATH_ZOPFLI}
