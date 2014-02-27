@@ -162,7 +162,7 @@ then
   unzip -o ${PATH_ZOPFLI}
   cd $(basename ${PATH_ZOPFLI} ".zip")
   make
-  cp /opt/deploy/workspace/$(basename ${PATH_ZOPFLI} ".zip") /usr/local/bin/zopfli
+  cp /opt/deploy/workspace/$(basename ${PATH_ZOPFLI} ".zip")/zopfli /usr/local/bin/zopfli
 fi
 
 if [ ! -f ${PATH_CASSANDRA} ]
