@@ -23,7 +23,7 @@ then
   apt-get update
   apt-get upgrade
   yes "Yes, do as I say!" | apt-get install -y --force-yes systemd systemd-sysv
-  apt-get install -y imagemagick git build-essential libpcre3-dev libssl-dev unzip
+  apt-get install -y build-essential libpcre3-dev libssl-dev unzip
 
   echo "------------------------------------------------------------------------------------"
   echo " YOU WILL NEED TO COMPLETE THE DEPLOYMENT BY CALLING: vagrant reload --provision    "

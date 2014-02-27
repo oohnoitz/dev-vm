@@ -42,6 +42,7 @@ chmod +x /vagrant/deploy/config.sh
 
 # APT
 apt-get update
+apt-get install -y build-essential libpcre3-dev libssl-dev unzip
 apt-get install -y git autoconf
 apt-get install -y htop strace ltrace tmux byobu
 apt-get install -y optipng advancecomp pngcrush jpegoptim
