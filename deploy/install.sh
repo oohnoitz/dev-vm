@@ -192,6 +192,7 @@ then
   cd $(basename ${PATH_IMAGEMAGICK} ".tar.gz")
   ./configure
   make && make install
+  ldconfig
 fi
 
 if [ ! -f ${PATH_SPHINXSEARCH} ]
