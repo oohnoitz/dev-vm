@@ -46,6 +46,7 @@ then
   cd /vagrant/.provision/ansible-playbooks
   git pull origin master
   source /usr/local/ansible/hacking/env-setup > /dev/null
+  export ANSIBLE_HOST_KEY_CHECKING=False
   ansible-playbook ../playbooks/development.yml
   ansible-playbook ../playbooks/config.yml
 fi
