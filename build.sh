@@ -44,7 +44,7 @@ fi
 if [ -f ~/.build-env/000 ]
 then
   cd /vagrant/.provision/ansible-playbooks
-  git pull
+  git pull origin master
   source /usr/local/ansible/hacking/env-setup > /dev/null
   ansible-playbook ../playbooks/development.yml
   ansible-playbook ../playbooks/config.yml
