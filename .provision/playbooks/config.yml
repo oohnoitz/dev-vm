@@ -1,0 +1,50 @@
+---
+
+- hosts: localhost
+
+  tasks:
+    - name: software - copy config files
+      copy: src=../config/{{ item.file }} dest={{ item.path }}
+      with_items:
+        - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
+        - { file: 'mongodb.conf', path: '/etc/mongodb.conf' }
+        - { file: 'mysql.conf', path: '/etc/my.cnf' }
+        - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
+        - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
+        - { file: 'php-fpm.conf', path: '/usr/local/etc/php-fpm.conf' }
+        - { file: 'redis.conf', path: '/etc/redis.conf' }
+
+    - name: software - copy custom config files
+      copy: src=../../.config/{{ item.file }} dest={{ item.path }}
+      with_items:
+        - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
+        - { file: 'mongodb.conf', path: '/etc/mongodb.conf' }
+        - { file: 'mysql.conf', path: '/etc/my.cnf' }
+        - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
+        - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
+        - { file: 'php-fpm.conf', path: '/usr/local/etc/php-fpm.conf' }
+        - { file: 'redis.conf', path: '/etc/redis.conf' }
+      ignore_errors: True
+
+    - name: systemd - copy service files
+      copy: src=../services/{{ item }} dest=/etc/systemd/system/{{ item }}
+      with_items:
+        - elasticsearch.service
+        - mongodb.service
+        - mysql.service
+        - nginx.service
+        - php-fpm.service
+        - redis.service
+
+    - name: systemd - reload service units
+      command: /bin/systemctl --system daemon-reload
+
+    - name: systemd - restart services
+      command: /bin/systemctl restart {{ item }}
+      with_items:
+        - elasticsearch.service
+        - mongodb.service
+        - mysql.service
+        - nginx.service
+        - php-fpm.service
+        - redis.service

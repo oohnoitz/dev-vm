@@ -6,17 +6,17 @@ This contains a collection of scripts used with Vagrant to provision a pre-confi
 ---
 
 Environment:
- - Debian 7.4.0 (https://github.com/ffuenf/vagrant-boxes)
+ - Debian 7.5.0 (https://github.com/ffuenf/vagrant-boxes)
  - systemd
 
 Software:
+ - Ansible
  - Elasticsearch
  - ImageMagick
  - MySQL: MariaDB + TokuDB
  - MongoDB: TokuMX
  - Nginx
  - NodeJS
- - OpenJDK
  - PHP
  - Redis
  - Sphinx Search
@@ -44,13 +44,10 @@ Instructions
 #### Install
  1. `git clone https://github.com/oohnoitz/dev-vm.git`
  2. `cd dev-vm`
- 3. `git submodule init`
- 4. `git submodule update`
- 5. `vagrant up`
- 6. `vagrant reload --provision`
+ 3. `vagrant up`
+ 4. `vagrant reload --provision`
 
 #### Update
  1. `git pull`
- 1. `git submodule update`
  2. `vagrant reload --provision`
  

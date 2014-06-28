@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir -p /tmp/build-env
+cp /tmp/build-env
+apt-get install -y netselect-apt grep mawk
+rm -rf /tmp/build-env/apt-mirrors
+
+tr '\n' ' ' < /vagrant/.provision/defaults/apt-mirrors > /tmp/build-env/apt-mirrors
+APT_NEW=`netselect -s 1 -vv $(cat /tmp/build-env/apt-mirrors) | awk '{print $2}' | head -1`
+APT_OLD=`cat /etc/apt/sources.list | grep ^deb | awk '{print $2}' | head -1`
+sed -i "s,${APT_OLD},${APT_NEW},g" /etc/apt/sources.list
+apt-get update

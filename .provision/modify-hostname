@@ -1,7 +1,7 @@
 #!/bin/bash
 
 host=`hostname`
-name=`shuf -n 1 /vagrant/deploy/etc/hostname`
+name=`shuf -n 1 /vagrant/.provision/defaults/hostname`
 
 [ -f /etc/exim4/update-exim4.conf.conf ] && sed -i "s,${host}.vagrantup.com,${name}.dev,g" /etc/exim4/update-exim4.conf.conf
 [ -f /etc/hosts ] && sed -i "s,${host}.vagrantup.com,${name}.dev,g" /etc/hosts

@@ -1,0 +1,38 @@
+---
+
+- hosts: localhost
+  vars_files:
+    - ../ansible-playbooks/vars/software.yml
+
+  roles:
+    - { role: ../ansible-playbooks/roles/common }
+
+    - { role: ../ansible-playbooks/roles/geoip, tags: ['bind', 'geoip'] }
+    - { role: ../ansible-playbooks/roles/imagemagick, tags: ['imagemagick'] }
+    - { role: ../ansible-playbooks/roles/zopfli, tags: ['zopfli'] }
+
+    - { role: ../ansible-playbooks/roles/bind, tags: ['bind'] }
+    - { role: ../ansible-playbooks/roles/nginx, tags: ['nginx'] }
+
+    - { role: ../ansible-playbooks/roles/cassandra, tags: ['cassandra'] }
+    - { role: ../ansible-playbooks/roles/mongodb, tags: ['mongodb'] }
+    - { role: ../ansible-playbooks/roles/mysql, tags: ['mysql'] }
+    - { role: ../ansible-playbooks/roles/redis, tags: ['redis'] }
+
+    - { role: ../ansible-playbooks/roles/elasticsearch, tags: ['elasticsearch'] }
+    - { role: ../ansible-playbooks/roles/sphinxsearch, tags: ['sphinxsearch'] }
+
+    - { role: ../ansible-playbooks/roles/nodejs, tags: ['nodejs'] }
+    - { role: ../ansible-playbooks/roles/php, tags: ['php'] }
+
+- hosts: localhost
+
+  tasks:
+    - name: install extra software
+      apt: pkg={{ item }} state=installed
+      with_items:
+        - advancecomp
+        - jpegoptim
+        - openjdk-7-jdk
+        - optipng
+        - pngcrush
