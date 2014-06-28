@@ -6,8 +6,6 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/usr/local/mongodb/bin/mongod --config /etc/mongodb.conf
-User=vagrant
-Group=vagrant
 Restart=always
 ExecReload=/bin/kill -HUP $MAINPID
 StandardOutput=syslog
