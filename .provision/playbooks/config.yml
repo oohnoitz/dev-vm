@@ -39,6 +39,16 @@
     - name: systemd - reload service units
       command: /bin/systemctl --system daemon-reload
 
+    - name: systemd - enable services
+      command: /bin/systemctl enable {{ item }}
+      with_items:
+        - elasticsearch.service
+        - mongodb.service
+        - mysql.service
+        - nginx.service
+        - php-fpm.service
+        - redis.service
+
     - name: systemd - restart services
       command: /bin/systemctl restart {{ item }}
       with_items:

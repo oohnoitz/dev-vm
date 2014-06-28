@@ -24,6 +24,7 @@
 
     - { role: ../ansible-playbooks/roles/nodejs, tags: ['nodejs'] }
     - { role: ../ansible-playbooks/roles/php, tags: ['php'] }
+    - { role: ../ansible-playbooks/roles/hhvm, tags: ['hhvm'] }
 
 - hosts: localhost
 
