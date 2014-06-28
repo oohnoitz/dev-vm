@@ -44,10 +44,13 @@ Instructions
 #### Install
  1. `git clone https://github.com/oohnoitz/dev-vm.git`
  2. `cd dev-vm`
- 3. `vagrant up`
- 4. `vagrant reload --provision`
+ 3. `git submodule init`
+ 4. `git submodule update`
+ 5. `vagrant up`
+ 6. `vagrant reload --provision`
 
 #### Update
  1. `git pull`
- 2. `vagrant reload --provision`
+ 2. `git submodule update`
+ 3. `vagrant reload --provision`
  
