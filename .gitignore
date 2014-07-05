@@ -1,4 +1,5 @@
 .config/
 .nginx/
 .vagrant/
+start.sh
 www/

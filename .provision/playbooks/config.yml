@@ -3,6 +3,9 @@
 - hosts: localhost
 
   tasks:
+    - name: copy udev mount rules
+      copy: src=../udev/50-vagrant-mount.rules dest=/etc/udev/rules.d/50-vagrant-mount.rules
+
     - name: software - copy config files
       copy: src=../config/{{ item.file }} dest={{ item.path }}
       with_items:
