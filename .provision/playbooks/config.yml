@@ -10,7 +10,7 @@
       copy: src=../config/{{ item.file }} dest={{ item.path }}
       with_items:
         - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
-        - { file: 'mongodb.conf', path: '/etc/mongodb.conf' }
+        - { file: 'tokumx.conf', path: '/etc/tokumx.conf' }
         - { file: 'mysql.conf', path: '/etc/my.cnf' }
         - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
         - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
@@ -21,7 +21,7 @@
       copy: src=../../.config/{{ item.file }} dest={{ item.path }}
       with_items:
         - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
-        - { file: 'mongodb.conf', path: '/etc/mongodb.conf' }
+        - { file: 'tokumx.conf', path: '/etc/tokumx.conf' }
         - { file: 'mysql.conf', path: '/etc/my.cnf' }
         - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
         - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
@@ -33,7 +33,7 @@
       copy: src=../services/{{ item }} dest=/etc/systemd/system/{{ item }}
       with_items:
         - elasticsearch.service
-        - mongodb.service
+        - tokumx.service
         - mysql.service
         - nginx.service
         - php-fpm.service
@@ -46,7 +46,7 @@
       command: /bin/systemctl enable {{ item }}
       with_items:
         - elasticsearch.service
-        - mongodb.service
+        - tokumx.service
         - mysql.service
         - nginx.service
         - php-fpm.service
@@ -56,7 +56,7 @@
       command: /bin/systemctl restart {{ item }}
       with_items:
         - elasticsearch.service
-        - mongodb.service
+        - tokumx.service
         - mysql.service
         - nginx.service
         - php-fpm.service

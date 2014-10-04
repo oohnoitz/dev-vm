@@ -1,0 +1,12 @@
+[Unit]
+Description=TokuMX (MongoDB)
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=tokumx
+PIDFile=/var/run/tokumx/tokumx.pid
+ExecStart=/usr/bin/mongod --quiet -f /etc/tokumx.conf
+
+[Install]
+WantedBy=multi-user.target
