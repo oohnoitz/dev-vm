@@ -25,6 +25,8 @@ then
 
   # checkout ansible
   git clone https://github.com/ansible/ansible.git /usr/local/ansible
+  cd /usr/local/ansible
+  git submodule update --init --recursive
 
   # configure ansible
   mkdir -p /etc/ansible
