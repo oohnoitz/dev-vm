@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "dev"
-  config.vm.box_url = "https://googledrive.com/host/0B83ZToJ3fGtDVC1DeVVzc3lkc0U/debian-7.6.0-amd64_virtualbox.box"
+  config.vm.box_url = "https://s3.eu-central-1.amazonaws.com/ffuenf-vagrantboxes/debian/debian-7.6.0-amd64_virtualbox.box"
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   config.vm.provider :virtualbox do |vb|
