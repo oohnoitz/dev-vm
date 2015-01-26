@@ -22,8 +22,11 @@
     - { role: ../ansible-playbooks/roles/elasticsearch, tags: ['elasticsearch'] }
     - { role: ../ansible-playbooks/roles/sphinxsearch, tags: ['sphinxsearch'] }
 
+    - { role: ../ansible-playbooks/roles/rabbitmq, tags: ['rabbitmq'] }
+
     - { role: ../ansible-playbooks/roles/nodejs, tags: ['nodejs'] }
     - { role: ../ansible-playbooks/roles/php, tags: ['php'] }
+    - { role: ../ansible-playbooks/roles/hhvm, tags: ['hhvm'] }
 
 - hosts: localhost
 
