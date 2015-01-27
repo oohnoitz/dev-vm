@@ -1,0 +1,10 @@
+[Unit]
+Description=ZooKeeper Server
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /usr/local/kafka/bin/zookeeper-server-start.sh /usr/local/kafka/config/zookeeper.properties
+TimeoutSec=10
+
+[Install]
+WantedBy=multi-user.target

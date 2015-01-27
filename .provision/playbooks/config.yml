@@ -38,6 +38,8 @@
         - nginx.service
         - php-fpm.service
         - redis.service
+        - zookeeper.service
+        - kafka.service
 
     - name: systemd - reload service units
       command: /bin/systemctl --system daemon-reload
@@ -51,6 +53,8 @@
         - nginx.service
         - php-fpm.service
         - redis.service
+        - zookeeper.service
+        - kafka.service
 
     - name: systemd - restart services
       command: /bin/systemctl restart {{ item }}
@@ -61,3 +65,5 @@
         - nginx.service
         - php-fpm.service
         - redis.service
+        - zookeeper.service
+        - kafka.service
