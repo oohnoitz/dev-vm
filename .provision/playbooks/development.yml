@@ -22,6 +22,7 @@
     - { role: ../ansible-playbooks/roles/elasticsearch, tags: ['elasticsearch'] }
     - { role: ../ansible-playbooks/roles/sphinxsearch, tags: ['sphinxsearch'] }
 
+    - { role: ../ansible-playbooks/roles/kafka, tags: ['kafka'] }
     - { role: ../ansible-playbooks/roles/rabbitmq, tags: ['rabbitmq'] }
 
     - { role: ../ansible-playbooks/roles/nodejs, tags: ['nodejs'] }
