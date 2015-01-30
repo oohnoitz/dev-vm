@@ -15,7 +15,6 @@
     - { role: ../ansible-playbooks/roles/nginx, tags: ['nginx'] }
 
     - { role: ../ansible-playbooks/roles/cassandra, tags: ['cassandra'] }
-    - { role: ../ansible-playbooks/roles/mongodb, tags: ['mongodb'] }
     - { role: ../ansible-playbooks/roles/mysql, tags: ['mysql'] }
     - { role: ../ansible-playbooks/roles/redis, tags: ['redis'] }
 
