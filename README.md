@@ -6,7 +6,7 @@ This contains a collection of scripts used with Vagrant to provision a pre-confi
 ---
 
 Environment:
- - Debian 7.5.0 (https://github.com/ffuenf/vagrant-boxes)
+ - Debian 8.0.0 (Testing)
  - systemd
 
 Software:
@@ -44,10 +44,8 @@ Instructions
 #### Install
  1. `git clone https://github.com/oohnoitz/dev-vm.git`
  2. `cd dev-vm`
- 3. `git submodule init`
- 4. `git submodule update`
- 5. `vagrant up`
- 6. `vagrant reload --provision`
+ 3. `git submodule update --init --recursive`
+ 4. `vagrant up`
 
 #### Update
  1. `git pull`

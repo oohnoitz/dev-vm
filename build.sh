@@ -15,10 +15,6 @@ then
   # update distro
   apt-get update
 
-  # install systemd
-  yes "Yes, do as I say!" | apt-get install -y --force-yes systemd systemd-sysv
-  apt-get upgrade -y
-
   # install essentials and ansible dependencies
   apt-get install -y build-essential git libpcre3-dev libssl-dev unzip
   apt-get install -y python-yaml python-jinja2 python-paramiko sshpass
@@ -38,20 +34,13 @@ then
   # configure ssh keys for ansible
   ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
   cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
-
-  echo "------------------------------------------------------------------------------------"
-  echo " YOU WILL NEED TO COMPLETE THE PROVISIONING BY CALLING: vagrant reload --provision  "
-  echo "------------------------------------------------------------------------------------"
-fi
-
-if [ -f ~/.build-env/000 ]
-then
-  cd /vagrant/.provision/ansible-playbooks
-  git pull origin master
-  source /usr/local/ansible/hacking/env-setup > /dev/null
-  export ANSIBLE_HOST_KEY_CHECKING=False
-  ansible-playbook ../playbooks/development.yml
-  ansible-playbook ../playbooks/config.yml
 fi
 
 touch ~/.build-env/000
+
+cd /vagrant/.provision/ansible-playbooks
+git pull origin master
+source /usr/local/ansible/hacking/env-setup > /dev/null
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook ../playbooks/development.yml
+ansible-playbook ../playbooks/config.yml
