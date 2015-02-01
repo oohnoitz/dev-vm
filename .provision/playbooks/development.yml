@@ -9,6 +9,7 @@
 
     - { role: ../ansible-playbooks/roles/geoip, tags: ['bind', 'geoip'] }
     - { role: ../ansible-playbooks/roles/imagemagick, tags: ['imagemagick'] }
+    - { role: ../ansible-playbooks/roles/vips, tags: ['vips'] }
     - { role: ../ansible-playbooks/roles/zopfli, tags: ['zopfli'] }
 
     - { role: ../ansible-playbooks/roles/bind, tags: ['bind'] }
