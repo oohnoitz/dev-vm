@@ -1,1 +1,1 @@
-SUBSYSTEM=="bdi", ACTION=="add", RUN+="/usr/bin/screen -d -m bash -c 'sleep 5; /bin/bash /vagrant/.provision/autorun.sh'"
+SUBSYSTEM=="bdi", ACTION=="add", RUN+="/bin/bash -c 'sleep 5; /bin/bash /vagrant/.provision/autorun.sh'"
