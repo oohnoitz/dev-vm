@@ -3,7 +3,6 @@
 - hosts: localhost
   vars_files:
     - ../ansible-playbooks/vars/software.yml
-
   roles:
     - { role: ../ansible-playbooks/roles/common }
 
@@ -23,14 +22,12 @@
     - { role: ../ansible-playbooks/roles/sphinxsearch, tags: ['sphinxsearch'] }
 
     - { role: ../ansible-playbooks/roles/kafka, tags: ['kafka'] }
-    - { role: ../ansible-playbooks/roles/rabbitmq, tags: ['rabbitmq'] }
 
     - { role: ../ansible-playbooks/roles/iojs, tags: ['iojs'] }
     - { role: ../ansible-playbooks/roles/php, tags: ['php'] }
     - { role: ../ansible-playbooks/roles/hhvm, tags: ['hhvm'] }
 
 - hosts: localhost
-
   tasks:
     - name: install extra software
       apt: pkg={{ item }} state=installed

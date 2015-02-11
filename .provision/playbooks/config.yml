@@ -1,7 +1,6 @@
 ---
 
 - hosts: localhost
-
   tasks:
     - name: copy udev mount rules
       copy: src=../udev/50-vagrant-mount.rules dest=/etc/udev/rules.d/50-vagrant-mount.rules
