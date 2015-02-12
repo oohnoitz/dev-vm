@@ -31,7 +31,7 @@
         - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
         - { file: 'php-fpm.conf', path: '/usr/local/etc/php-fpm.conf' }
         - { file: 'hhvm-php.ini', path: '/etc/hhvm/php.ini' }
-        - { file: 'hhvm-server.ini', path: ''/etc/hhvm/server.ini' }
+        - { file: 'hhvm-server.ini', path: '/etc/hhvm/server.ini' }
         - { file: 'kafka-server.properties', path: '/usr/local/kafka/config/server.properties'}
         - { file: 'kafka-zookeeper.properties', path: '/usr/local/kafka/config/zookeeper.properties' }
       ignore_errors: True
