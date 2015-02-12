@@ -11,10 +11,14 @@
         - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
         - { file: 'tokumx.conf', path: '/etc/tokumx.conf' }
         - { file: 'mysql.conf', path: '/etc/my.cnf' }
+        - { file: 'redis.conf', path: '/etc/redis.conf' }
         - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
         - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
         - { file: 'php-fpm.conf', path: '/usr/local/etc/php-fpm.conf' }
-        - { file: 'redis.conf', path: '/etc/redis.conf' }
+        - { file: 'hhvm-php.ini', path: '/etc/hhvm/php.ini' }
+        - { file: 'hhvm-server.ini', path: '/etc/hhvm/server.ini' }
+        - { file: 'kafka-server.properties', path: '/usr/local/kafka/config/server.properties'}
+        - { file: 'kafka-zookeeper.properties', path: '/usr/local/kafka/config/zookeeper.properties' }
 
     - name: software - copy custom config files
       copy: src=../../.config/{{ item.file }} dest={{ item.path }}
@@ -22,10 +26,14 @@
         - { file: 'elasticsearch.yml', path: '/usr/local/elasticsearch/config/elasticsearch.yml' }
         - { file: 'tokumx.conf', path: '/etc/tokumx.conf' }
         - { file: 'mysql.conf', path: '/etc/my.cnf' }
+        - { file: 'redis.conf', path: '/etc/redis.conf' }
         - { file: 'nginx.conf', path: '/usr/local/nginx/conf/nginx.conf' }
         - { file: 'php.ini', path: '/usr/local/lib/php.ini' }
         - { file: 'php-fpm.conf', path: '/usr/local/etc/php-fpm.conf' }
-        - { file: 'redis.conf', path: '/etc/redis.conf' }
+        - { file: 'hhvm-php.ini', path: '/etc/hhvm/php.ini' }
+        - { file: 'hhvm-server.ini', path: ''/etc/hhvm/server.ini' }
+        - { file: 'kafka-server.properties', path: '/usr/local/kafka/config/server.properties'}
+        - { file: 'kafka-zookeeper.properties', path: '/usr/local/kafka/config/zookeeper.properties' }
       ignore_errors: True
 
     - name: systemd - copy service files
