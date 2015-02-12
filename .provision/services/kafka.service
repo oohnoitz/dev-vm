@@ -4,6 +4,7 @@ After=zookeeper.service
 
 [Service]
 ExecStart=/bin/bash /usr/local/kafka/bin/kafka-server-start.sh /usr/local/kafka/config/server.properties
+ExecStop=/bin/kill -SIGTERM $MAINPID
 TimeoutSec=10
 
 [Install]
