@@ -37,3 +37,20 @@
         - openjdk-7-jdk
         - optipng
         - pngcrush
+        - vim
+        - zsh
+
+    - name: change default shell for root and vagrant users
+      user: name={{ item }} shell=/bin/zsh
+      with_items:
+        - root
+        - vagrant
+
+    - name: copy base .zshrc
+      copy: src=../config/.zshrc owner={{ item.owner }} group={{ item.owner }} dest={{ item.path }}/.zshrc
+      with_items:
+        - { owner: 'root', path: '/root' }
+        - { owner: 'vagrant', path: '/home/vagrant' }
+
+    - name: install tmuxinator
+      gem: name=tmuxinator state=latest
