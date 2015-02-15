@@ -37,10 +37,11 @@
       ignore_errors: True
 
     - name: software - copy custom .zshrc
-      copy: src=../../config/.zshrc owner={{ item.owner }} group={{ item.owner }} dest={{ item.path }}/.zshrc
+      copy: src=../../.config/.zshrc owner={{ item.owner }} group={{ item.owner }} dest={{ item.path }}/.zshrc
       with_items:
         - { owner: 'root', path: '/root' }
         - { owner: 'vagrant', path: '/home/vagrant' }
+      ignore_errors: True
 
     - name: systemd - copy service files
       copy: src=../services/{{ item }} dest=/etc/systemd/system/{{ item }}
