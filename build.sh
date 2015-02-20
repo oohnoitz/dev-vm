@@ -40,7 +40,7 @@ touch ~/.build-env/000
 
 INSTALL=""
 if [ -f /vagrant/.install ] ; then
-  INSTALL="-t `paste -s -d ',' /vagrant/.install`"
+  INSTALL="--tags default,`paste -s -d ',' /vagrant/.install`"
 fi
 
 cd /vagrant/.provision/ansible-playbooks

@@ -4,7 +4,7 @@
   vars_files:
     - ../ansible-playbooks/vars/software.yml
   roles:
-    - { role: ../ansible-playbooks/roles/common }
+    - { role: ../ansible-playbooks/roles/common, tags: ['default'] }
 
     - { role: ../ansible-playbooks/roles/geoip, tags: ['bind', 'geoip'] }
     - { role: ../ansible-playbooks/roles/imagemagick, tags: ['imagemagick'] }
