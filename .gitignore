@@ -2,3 +2,4 @@
 .nginx/
 .vagrant/
 www/
+.install
