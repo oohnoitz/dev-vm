@@ -54,3 +54,6 @@
 
     - name: install tmuxinator
       gem: name=tmuxinator state=latest
+
+    - name: create default vagrant user for postgres
+      postgresql_user: name=vagrant password=vagrant role_attr_flags=CREATEDB,SUPERUSER
