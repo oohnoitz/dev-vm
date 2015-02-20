@@ -19,6 +19,7 @@
         - { file: 'hhvm-server.ini', path: '/etc/hhvm/server.ini' }
         - { file: 'kafka-server.properties', path: '/usr/local/kafka/config/server.properties'}
         - { file: 'kafka-zookeeper.properties', path: '/usr/local/kafka/config/zookeeper.properties' }
+      ignore_errors: True
 
     - name: software - copy custom config files
       copy: src=../../.config/{{ item.file }} dest={{ item.path }}
@@ -81,3 +82,4 @@
         - redis.service
         - zookeeper.service
         - kafka.service
+      ignore_errors: True
