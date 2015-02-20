@@ -38,9 +38,14 @@ fi
 
 touch ~/.build-env/000
 
+INSTALL=""
+if [ -f /vagrant/.install ] ; then
+  INSTALL="-t `paste -s -d ',' /vagrant/.install`"
+fi
+
 cd /vagrant/.provision/ansible-playbooks
 git pull origin master
 source /usr/local/ansible/hacking/env-setup > /dev/null
 export ANSIBLE_HOST_KEY_CHECKING=False
-ansible-playbook ../playbooks/development.yml
+ansible-playbook ../playbooks/development.yml ${INSTALL}
 ansible-playbook ../playbooks/config.yml
