@@ -45,7 +45,10 @@ Instructions
  1. `git clone https://github.com/oohnoitz/dev-vm.git --recursive`
  2. `cd dev-vm`
  3. `vagrant up`
+ 4. `vagrant ssh` (or ssh with your own client)
+ 5. `sudo bash /vagrant/build.sh`
 
 #### Update
  1. `git pull`
- 2. `vagrant reload --provision`
+ 2. `vagrant ssh` (or ssh with your own client)
+ 3. `sudo bash /vagrant/build.sh`
