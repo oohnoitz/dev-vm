@@ -6,12 +6,13 @@
   roles:
     - { role: ../ansible-playbooks/roles/common, tags: ['default'] }
 
-    - { role: ../ansible-playbooks/roles/geoip, tags: ['bind', 'geoip'] }
     - { role: ../ansible-playbooks/roles/imagemagick, tags: ['imagemagick', 'vips'] }
+    - { role: ../ansible-playbooks/roles/ffmpeg, tags: ['ffmpeg'] }
     - { role: ../ansible-playbooks/roles/mozjpeg, tags: ['mozjpeg'] }
     - { role: ../ansible-playbooks/roles/vips, tags: ['vips'] }
     - { role: ../ansible-playbooks/roles/zopfli, tags: ['zopfli'] }
 
+    - { role: ../ansible-playbooks/roles/geoip, tags: ['bind', 'geoip'] }
     - { role: ../ansible-playbooks/roles/bind, tags: ['bind'] }
     - { role: ../ansible-playbooks/roles/nginx, tags: ['nginx'] }
 
