@@ -6,17 +6,17 @@ This contains a collection of scripts used with Vagrant to provision a pre-confi
 ---
 
 Environment:
- - Debian 8.0.0 (Testing)
+ - Debian 8.0.0
  - systemd
 
 Software:
  - Ansible
  - Elasticsearch
  - ImageMagick
+ - io.js
  - MySQL: MariaDB + TokuDB
  - MongoDB: TokuMX
  - Nginx
- - NodeJS
  - PHP
  - Redis
  - Sphinx Search

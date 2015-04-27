@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "dev-jessie"
-  config.vm.box_url = "http://mirror.jii.moe/vm/debian-8.0.0-test-amd64_virtualbox.box"
+  config.vm.box_url = "http://mirror.jii.moe/vm/debian-8.0.0-amd64_virtualbox.box"
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
   config.vm.provider :virtualbox do |vb|
