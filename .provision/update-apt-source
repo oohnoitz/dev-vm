@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mkdir -p /tmp/build-env
-cp /tmp/build-env
 apt-get install -y netselect-apt grep mawk
 rm -rf /tmp/build-env/apt-mirrors
 
