@@ -9,9 +9,6 @@ then
   # modify hostname
   bash -x /vagrant/.provision/modify-hostname
 
-  # update mirror
-  bash -x /vagrant/.provision/update-apt-source
-
   # update distro
   apt-get update
 
@@ -48,6 +45,5 @@ cd /vagrant/.provision/ansible-playbooks
 git pull origin master
 source /usr/local/ansible/hacking/env-setup > /dev/null
 export ANSIBLE_HOST_KEY_CHECKING=False
-mount -o remount,size=1G tmpfs /tmp
 ansible-playbook ../playbooks/development.yml ${INSTALL}
 ansible-playbook ../playbooks/config.yml
