@@ -40,6 +40,7 @@
         - openjdk-7-jdk
         - optipng
         - pngcrush
+        - python-psycopg2
         - vim
         - zsh
 
@@ -59,4 +60,6 @@
       gem: name=tmuxinator state=latest
 
     - name: create default vagrant user for postgres
+      sudo: yes
+      sudo_user: postgres
       postgresql_user: name=vagrant password=vagrant role_attr_flags=CREATEDB,SUPERUSER

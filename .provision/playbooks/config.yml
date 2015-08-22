@@ -78,6 +78,7 @@
         - tokumx.service
         - mysql.service
         - nginx.service
+        - hhvm.service
         - php-fpm.service
         - redis.service
         - zookeeper.service
