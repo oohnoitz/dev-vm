@@ -18,6 +18,7 @@ then
   # install essentials and ansible dependencies
   apt-get install -y build-essential git libpcre3-dev libssl-dev unzip
   apt-get install -y python-yaml python-jinja2 python-paramiko sshpass
+  apt-get autoremove -y
 
   # checkout ansible
   git clone https://github.com/ansible/ansible.git /usr/local/ansible
@@ -47,5 +48,6 @@ cd /vagrant/.provision/ansible-playbooks
 git pull origin master
 source /usr/local/ansible/hacking/env-setup > /dev/null
 export ANSIBLE_HOST_KEY_CHECKING=False
+mount -o remount,size=1G tmpfs /tmp
 ansible-playbook ../playbooks/development.yml ${INSTALL}
 ansible-playbook ../playbooks/config.yml
