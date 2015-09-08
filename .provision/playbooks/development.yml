@@ -17,6 +17,7 @@
     - { role: ../ansible-playbooks/roles/nginx, tags: ['nginx'] }
 
     - { role: ../ansible-playbooks/roles/cassandra, tags: ['cassandra'] }
+    - { role: ../ansible-playbooks/roles/mongodb, tags: ['mongodb'] }
     - { role: ../ansible-playbooks/roles/mysql, tags: ['mysql'] }
     - { role: ../ansible-playbooks/roles/redis, tags: ['redis'] }
     - { role: ../ansible-playbooks/roles/postgres, tags: ['postgres'] }
@@ -26,7 +27,7 @@
 
     - { role: ../ansible-playbooks/roles/kafka, tags: ['kafka'] }
 
-    - { role: ../ansible-playbooks/roles/iojs, tags: ['iojs'] }
+    - { role: ../ansible-playbooks/roles/nodejs, tags: ['nodejs'] }
     - { role: ../ansible-playbooks/roles/php, tags: ['php'] }
     - { role: ../ansible-playbooks/roles/hhvm, tags: ['hhvm'] }
 
