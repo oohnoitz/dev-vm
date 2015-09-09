@@ -61,6 +61,7 @@
       command: /bin/systemctl enable {{ item }}
       with_items:
         - elasticsearch.service
+        - mongod.service
         - mysql.service
         - nginx.service
         - php-fpm.service
@@ -72,6 +73,7 @@
       command: /bin/systemctl restart {{ item }}
       with_items:
         - elasticsearch.service
+        - mongod.service
         - mysql.service
         - nginx.service
         - hhvm.service
