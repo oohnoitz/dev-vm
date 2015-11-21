@@ -38,7 +38,7 @@
       with_items:
         - advancecomp
         - jpegoptim
-        - openjdk-7-jdk
+        - openjdk-8-jdk
         - optipng
         - pngcrush
         - python-psycopg2
