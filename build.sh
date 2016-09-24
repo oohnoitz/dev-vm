@@ -20,7 +20,7 @@ then
   # checkout ansible
   git clone https://github.com/ansible/ansible.git /usr/local/ansible
   cd /usr/local/ansible
-  git checkout release1.8.2
+  git checkout release1.8.4
   git submodule update --init --recursive
 
   # configure ansible
